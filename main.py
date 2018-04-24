@@ -4,7 +4,7 @@
 import os, time, random
 import numpy as np
 import scipy
-
+from skimage.measure import compare_psnr, compare_ssim
 import tensorflow as tf
 import tensorlayer as tl
 from model import *
@@ -165,6 +165,8 @@ def train():
                 sample_out, sample_grad_out = sess.run([net_image_test.outputs,net_grad_test.outputs], {t_image: sample_input_imgs})#; print('gen sub-image:', out.shape, out.min(), out.max())
                 tl.vis.save_images(truncate_imgs_fn(sample_out), [ni, ni], save_dir+'/train_predict_%d.png' % epoch)
                 tl.vis.save_images(truncate_imgs_fn(np.abs(sample_grad_out)), [ni, ni], save_dir+'/train_grad_predict_%d.png' % epoch)
+                psnr_val = compare_psnr(sample_output_imgs, sample_out)
+                print('the psnr is:  ', psnr_val)
             
 
 
