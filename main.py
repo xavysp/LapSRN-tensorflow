@@ -146,11 +146,11 @@ def train():
         epoch_time = time.time()
         total_g_loss, n_iter = 0, 0
 
-        ## load image data
+        ## load image data for training
         idx_list = np.random.permutation(len(train_hr_list))
         for idx_file in range(len(idx_list)):
             step_time = time.time()
-            batch_input_imgs,batch_output_imgs = prepare_nn_data(train_hr_list,train_lr_list,idx_file)
+            batch_input_imgs,batch_output_imgs = prepare_nn_data(train_hr_list,train_lr_list,idx_list[idx_file])
             errM, _ = sess.run([g_loss, g_optim], {t_image: batch_input_imgs, t_target_image: batch_output_imgs})
             total_g_loss += errM
             n_iter += 1

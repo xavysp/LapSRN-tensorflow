@@ -12,12 +12,12 @@ config.model.resblock_depth  = 10
 config.model.recursive_depth = 1
 
 config.valid = edict()
-config.valid.hr_folder_path = '/media/zhehu/DATA/Public_Dataset/NTIRE2017/DIV2K_valid_HR/'
-config.valid.lr_folder_path = '/media/zhehu/DATA/Public_Dataset/NTIRE2017/DIV2K_valid_LR_bicubic/X4/'
+config.valid.hr_folder_path = '../CDNet/dataset/DIV2K/DIV2K_valid_HR/'
+config.valid.lr_folder_path = '../CDNet/dataset/DIV2K/DIV2K_valid_LR_bicubic/X4/'
 
 config.train = edict()
-config.train.hr_folder_path = '/media/zhehu/DATA/Public_Dataset/NTIRE2017/DIV2K_train_HR/'
-config.train.lr_folder_path = '/media/zhehu/DATA/Public_Dataset/NTIRE2017/DIV2K_train_LR_bicubic/X4/'
+config.train.hr_folder_path = '../CDNet/dataset/DIV2K/DIV2K_train_HR/'
+config.train.lr_folder_path = '../CDNet/dataset/DIV2K/DIV2K_train_LR_bicubic/X4/'
 config.train.batch_size = 4 # use large number if you have enough memory
 config.train.in_patch_size = 64
 config.train.out_patch_size = config.model.scale * config.train.in_patch_size
